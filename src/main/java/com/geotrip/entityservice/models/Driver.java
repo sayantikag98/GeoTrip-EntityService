@@ -22,7 +22,7 @@ public class Driver extends User{
     @Column(nullable = false, columnDefinition = "BIT(1) DEFAULT 0 NOT NULL")
     private Boolean isLicenseNumberVerified;
 
-    @OneToOne(mappedBy = "driver", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
+    @OneToOne(mappedBy = "driver", cascade = CascadeType.ALL, orphanRemoval = true)
     private Car car;
 
 
