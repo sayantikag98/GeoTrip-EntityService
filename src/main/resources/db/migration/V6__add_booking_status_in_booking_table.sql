@@ -1,0 +1,23 @@
+ALTER TABLE booking
+    ADD booking_status ENUM ('REQUESTED', 'SEARCHING_DRIVER', 'DRIVER_ASSIGNED', 'DRIVER_ARRIVING', 'IN_PROGRESS', 'COMPLETED', 'CANCELLED', 'SCHEDULED') NULL;
+
+ALTER TABLE booking
+    MODIFY booking_status ENUM ('REQUESTED', 'SEARCHING_DRIVER', 'DRIVER_ASSIGNED', 'DRIVER_ARRIVING', 'IN_PROGRESS', 'COMPLETED', 'CANCELLED', 'SCHEDULED') NOT NULL;
+
+ALTER TABLE booking
+    ADD CONSTRAINT uc_booking_dropoff_location UNIQUE (dropoff_location_id);
+
+ALTER TABLE booking
+    ADD CONSTRAINT uc_booking_pickup_location UNIQUE (pickup_location_id);
+
+ALTER TABLE driver
+    DROP COLUMN approval_status;
+
+ALTER TABLE driver
+    ADD approval_status ENUM ('PENDING', 'APPROVED', 'REJECTED') DEFAULT 'APPROVED' NOT NULL;
+
+ALTER TABLE car
+    DROP COLUMN car_type;
+
+ALTER TABLE car
+    ADD car_type ENUM ('SEDAN', 'HATCHBACK', 'SUV', 'MUV') NOT NULL;
