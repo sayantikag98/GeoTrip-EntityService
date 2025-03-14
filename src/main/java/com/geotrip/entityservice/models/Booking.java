@@ -37,11 +37,13 @@ public class Booking extends BaseModel{
     @Temporal(TemporalType.TIMESTAMP)
     private LocalDateTime scheduledAt;
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+
+    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinColumn(name = "pickup_location_id", nullable = false)
     private ExactLocation pickupLocation;
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+
+    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinColumn(name = "dropoff_location_id", nullable = false)
     private ExactLocation dropoffLocation;
 
