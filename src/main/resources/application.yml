@@ -1,6 +1,6 @@
 spring:
-  application:
-    name: EntityService
+#  application:
+#    name: ENTITY-SERVICE
 
   datasource:
     url: ${DB_URL}
