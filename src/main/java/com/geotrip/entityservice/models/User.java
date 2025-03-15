@@ -46,12 +46,12 @@ public abstract class User extends BaseModel implements UserDetails {
 
 
     @Enumerated(EnumType.STRING)
-    @Column(columnDefinition = "ENUM ('DRIVER', 'PASSENGER') NOT NULL")
+    @Column(columnDefinition = "ENUM ('ROLE_DRIVER', 'ROLE_PASSENGER') NOT NULL")
     private Role role;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(() -> "ROLE_" + role.name());
+        return List.of(() -> role.name());
     }
 
     @Override

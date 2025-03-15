@@ -1,6 +1,6 @@
 package com.geotrip.entityservice.models;
 
 public enum Role {
-    DRIVER,
-    PASSENGER
+    ROLE_DRIVER,
+    ROLE_PASSENGER
 }
